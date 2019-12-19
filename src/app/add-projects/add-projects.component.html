@@ -1,0 +1,54 @@
+<H1>Project </H1>
+<div class="container">
+  <fieldset class="form-group">
+    <label>Project Name</label>
+    <input
+      type="text"
+      #description="ngModel"
+      [(ngModel)]="myProject.projectName"
+      class="form-control"
+      name="projectName"
+      required="required"
+      minlength="5"
+    />
+  </fieldset>
+  <fieldset class="form-group">
+    <label>Project Description</label>
+    <input
+      type="text"
+      #description="ngModel"
+      [(ngModel)]="myProject.projectDesc"
+      class="form-control"
+      name="description"
+      required="required"
+      minlength="5"
+    />
+  </fieldset>
+  <fieldset class="form-group">
+    <label>Start Date</label>
+    <input
+      type="date"
+      #targetDate="ngModel"
+      [ngModel]="myProject.startDate | date: 'yyyy-MM-dd'"
+      (ngModelChange)="myProject.startDate = $event"
+      class="form-control"
+      name="startDate"
+      required="required"
+    />
+  </fieldset>
+  <fieldset class="form-group">
+    <label>End Date</label>
+    <input
+      type="date"
+      #targetDate="ngModel"
+      [ngModel]="myProject.endDate | date: 'yyyy-MM-dd'"
+      (ngModelChange)="myProject.endDate = $event"
+      class="form-control"
+      name="endDate"
+      required="required"
+    />
+  </fieldset>
+  <button class="btn btn-success" (click)="saveProject()">
+    Save
+  </button>
+</div>

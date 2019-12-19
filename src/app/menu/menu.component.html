@@ -1,0 +1,58 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <!-- <div><a href="https://google.com" class="navbar-brand">ATZ</a></div> -->
+    <div>
+      <IMG
+        SRC="../../assets/ATZ_eblm.jpg"
+        ALT="some text"
+        WIDTH="40"
+        HEIGHT="40"
+      />
+    </div>
+
+    <ul class="navbar-nav">
+      <li>
+        <a
+          *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"
+          routerLink="/welcome/admin"
+          class="nav-link"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"
+          routerLink="/myprojects"
+          class="nav-link"
+          >My Projects</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"
+          routerLink="/listusers"
+          class="nav-link"
+          >Users</a
+        >
+      </li>
+    </ul>
+    <ul class="navbar-nav navbar-collapse justify-content-end">
+      <li>
+        <a
+          *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()"
+          routerLink="/login"
+          class="nav-link"
+          >login</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"
+          routerLink="/logout"
+          class="nav-link"
+          >logout</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

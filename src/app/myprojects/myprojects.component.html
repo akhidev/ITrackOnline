@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>My Projects</h1>
+  <div class="alert alert-success" *ngIf="message">
+    {{ message }}
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Project ID</th>
+        <th>Project Name</th>
+        <th>Project Desc</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
+    <body></body>
+    <tr *ngFor="let myprojects of myprojects">
+      <th>{{ myprojects.projectId }}</th>
+      <th>{{ myprojects.projectName }}</th>
+      <th>{{ myprojects.projectDesc }}</th>
+      <th>{{ myprojects.startDate | date: "dd-MMM-yyyy" }}</th>
+      <th>{{ myprojects.endDate | date: "dd-MMM-yyyy" }}</th>
+      <th>
+        <button
+          (click)="retriveMyProjects(myprojects.projectId)"
+          class="btn btn-primary btn-sm"
+        >
+          U</button
+        >&nbsp;
+        <button
+          (click)="deleteMyProjects(myprojects.projectId)"
+          class="btn btn-primary btn-sm"
+        >
+          D
+        </button>
+      </th>
+    </tr>
+  </table>
+
+  <div class="row">
+    <button (click)="addProjects()" class="btn btn-primary btn-sm">
+      Add
+    </button>
+  </div>
+</div>
+
+<div class="chart-wrapper" style="height:200px; width:500px;">
+  <canvas
+    baseChart
+    [datasets]="barChartData"
+    [labels]="barrChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType"
+  >
+  </canvas>
+</div>

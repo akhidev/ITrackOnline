@@ -1,0 +1,56 @@
+<h1>Login !!</h1>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>SB Admin 2 - Login</title>
+
+  <!-- Custom fonts for this template-->
+  <!-- <link
+    href="../../assets/vendor/fontawesome-free/css/all.min.css"
+    rel="stylesheet"
+    type="text/css"
+  /> -->
+
+  <!-- Custom styles for this template-->
+  <link href="../../assets/css/sb-admin-2.min.css" rel="stylesheet" />
+  -->
+</head>
+
+<div class="container">
+  <table>
+    <tr>
+      <td>
+        <div class="alert alert-warning" *ngIf="invalidLogin">
+          {{ errorMessage }}
+        </div>
+        <div>
+          User Name :
+          <input
+            type="text"
+            name="username"
+            [(ngModel)]="username"
+            value="{{ username }}"
+          />
+
+          Password :
+          <input type="password" name="password" [(ngModel)]="password" />
+
+          <button (click)="handleLogin()" class="btn btn-sucess">
+            Login
+          </button>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+  </table>
+</div>
