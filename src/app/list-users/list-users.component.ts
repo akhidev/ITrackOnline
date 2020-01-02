@@ -61,6 +61,7 @@ export class ListUsersComponent implements OnInit {
     //this.router.navigate(["myprojects"]);
     //this.service.uploadProject(USER, file);
     //.subscribe(data => console.log(data));
+    var oReq = new XMLHttpRequest();
 
     oReq.onload = function(e) {
       var arraybuffer = oReq.response;
