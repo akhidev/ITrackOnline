@@ -1,1 +1,15 @@
-<p>list-users works!</p>
+<!-- <hello name="{{ name }}"></hello> -->
+<tr></tr>
+<tr></tr>
+
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+<input type="file" (change)="onFileChange($event)" />
+
+<div id="output"></div>
+<br />
+<div *ngIf="willDownload">
+  <a id="download"> Download JSON File </a>
+</div>

@@ -13,7 +13,7 @@
     <ul class="navbar-nav">
       <li>
         <a
-          *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"
+          *ngIf="basicAuthenticationService.isUserLoggedIn()"
           routerLink="/welcome/admin"
           class="nav-link"
           >Home</a
@@ -21,7 +21,7 @@
       </li>
       <li>
         <a
-          *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"
+          *ngIf="basicAuthenticationService.isUserLoggedIn()"
           routerLink="/myprojects"
           class="nav-link"
           >My Projects</a
@@ -29,7 +29,7 @@
       </li>
       <li>
         <a
-          *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"
+          *ngIf="basicAuthenticationService.isUserLoggedIn()"
           routerLink="/listusers"
           class="nav-link"
           >Users</a
@@ -39,7 +39,7 @@
     <ul class="navbar-nav navbar-collapse justify-content-end">
       <li>
         <a
-          *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()"
+          *ngIf="!basicAuthenticationService.isUserLoggedIn()"
           routerLink="/login"
           class="nav-link"
           >login</a
@@ -47,7 +47,7 @@
       </li>
       <li>
         <a
-          *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"
+          *ngIf="basicAuthenticationService.isUserLoggedIn()"
           routerLink="/logout"
           class="nav-link"
           >logout</a

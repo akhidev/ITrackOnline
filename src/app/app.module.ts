@@ -11,11 +11,12 @@ import { MenuComponent } from "./menu/menu.component";
 import { FooterComponent } from "./footer/footer.component";
 import { MyprojectsComponent } from "./myprojects/myprojects.component";
 import { ErrorComponent } from "./error/error.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ChartsModule } from "ng2-charts";
 import { AddProjectsComponent } from "./add-projects/add-projects.component";
 import { AddUsersComponent } from "./add-users/add-users.component";
-import { ListUsersComponent } from './list-users/list-users.component';
+import { ListUsersComponent } from "./list-users/list-users.component";
+import { HttpIntersepterBasicAuthService } from "./service/http/http-intersepter-basic-auth.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,13 @@ import { ListUsersComponent } from './list-users/list-users.component';
     HttpClientModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpIntersepterBasicAuthService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

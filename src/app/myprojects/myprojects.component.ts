@@ -10,6 +10,7 @@ export class Myprojects {
   constructor(
     public projectId: number,
     public projectName: string,
+    public username: string,
     public projectDesc: string,
     public startDate: Date,
     public endDate: Date
@@ -86,13 +87,13 @@ export class MyprojectsComponent implements OnInit {
   barChartOptions: ChartOptions = {
     responsive: true
   };
-  barChartLabels: Label[] = ["Apple", "Banana", "Kiwifruit"];
+  barChartLabels: Label[] = ["A", "B", "C"];
   barChartType: ChartType = "horizontalBar";
   barChartLegend = true;
   barChartPlugins = [];
 
   barChartData: ChartDataSets[] = [
-    { data: [45, 37, 60], label: "Best Fruits" }
+    { data: [45, 37, 60], label: "Project Timeline" }
   ];
 
   //

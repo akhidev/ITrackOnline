@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { USER } from "../app.constants";
 import { MyProjectsDataService } from "../service/data/my-projects-data.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Myprojects } from "../myprojects/myprojects.component";
@@ -20,10 +21,10 @@ export class AddProjectsComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params["id"];
     //console.log("Update id " + this.id);
-    this.myProject = new Myprojects(this.id, "", "", null, null);
+    this.myProject = new Myprojects(this.id, "", "", "", null, null);
     if (this.id != -1) {
       this.service
-        .retriveMyProjects("admin", this.id)
+        .retriveMyProjects(USER, this.id)
         .subscribe(data => (this.myProject = data));
       console.log("Update myProject " + this.myProject);
     }
@@ -31,16 +32,16 @@ export class AddProjectsComponent implements OnInit {
 
   saveProject() {
     if (this.id != -1) {
-      console.log("Update Save Project ");
+      // console.log("Update Save Project ");
 
       this.service
-        .saveProject("admin", this.id, this.myProject)
+        .saveProject(USER, this.id, this.myProject)
         .subscribe(data => console.log(data));
       this.router.navigate(["myprojects"]);
     } else {
-      console.log("New Save Project ");
+      console.log("New Save Project " + this.myProject);
       this.service
-        .saveNewProject("admin", this.myProject)
+        .saveNewProject(USER, this.myProject)
         .subscribe(data => console.log(data));
       this.router.navigate(["myprojects"]);
     }
